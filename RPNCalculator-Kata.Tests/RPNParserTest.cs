@@ -1,5 +1,6 @@
 ﻿using NFluent;
 using NUnit.Framework;
+using System;
 
 namespace RPNCalculator_Kata.Tests
 {
@@ -30,7 +31,9 @@ namespace RPNCalculator_Kata.Tests
             rpnParser.Parse(formula);
 
             // THEN
-            Check.That(rpnParser.Operators).Contains("+");
+            Func<int, int, int> expectedOperator = RPNOperator.Sum;
+
+            Check.That(rpnParser.Operators).Contains(expectedOperator);
         }
     }
 }

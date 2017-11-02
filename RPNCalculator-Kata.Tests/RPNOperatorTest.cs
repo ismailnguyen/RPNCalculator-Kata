@@ -22,7 +22,6 @@ namespace RPNCalculator_Kata.Tests
 
         [TestCase(3, 5, -2)]
         [TestCase(44, 5, 39)]
-
         public void Sould_Substract_Two_Number(int x, int y, int expectedResult)
         {
             // GIVEN
@@ -37,7 +36,6 @@ namespace RPNCalculator_Kata.Tests
 
         [TestCase(30, 5, 6)]
         [TestCase(15, 3, 5)]
-
         public void Sould_Divide_Two_Number(int x, int y, int expectedResult)
         {
             // GIVEN
@@ -52,7 +50,6 @@ namespace RPNCalculator_Kata.Tests
 
         [TestCase(3, 5, 15)]
         [TestCase(15, 3, 45)]
-
         public void Sould_Multiply_Two_Number(int x, int y, int expectedResult)
         {
             // GIVEN
