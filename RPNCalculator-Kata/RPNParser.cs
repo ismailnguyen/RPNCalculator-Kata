@@ -5,8 +5,8 @@ namespace RPNCalculator_Kata
 {
     public class RPNParser
     {
-        public IList<int> Operands { get; private set; } = new List<int>();
-        public IList<Func<int, int, int>> Operators { get; private set; } = new List<Func<int, int, int>>();
+        public Stack<int> Operands { get; private set; } = new Stack<int>();
+        public Stack<Func<int, int, int>> Operators { get; private set; } = new Stack<Func<int, int, int>>();
 
         public void Parse(string formula)
         {
@@ -23,7 +23,7 @@ namespace RPNCalculator_Kata
             {
                 if (int.TryParse(splittedFormulaCaracter, out int parsedCaracter))
                 {
-                    Operands.Add(parsedCaracter);
+                    Operands.Push(parsedCaracter);
                 }
             }
         }
@@ -34,7 +34,7 @@ namespace RPNCalculator_Kata
             {
                 if (splittedFormulaCaracter.Equals("+"))
                 {
-                    Operators.Add(RPNOperator.Sum);
+                    Operators.Push(RPNOperator.Sum);
                 }
             }
         }
