@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="RPNCalculatorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPNParserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RPNCalculator-Kata\RPNCalculator-Kata.csproj">
