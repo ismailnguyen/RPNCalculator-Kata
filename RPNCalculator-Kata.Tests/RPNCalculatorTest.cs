@@ -5,11 +5,11 @@ namespace RPNCalculator_Kata.Tests
 {
     class RPNCalculatorTest
     {
-        [Test(Description = "5 3 + => 5+3 => 8")]
-        public void Sould_Add_Two_Number()
+        [TestCase("5 3 +", 8)]
+        [TestCase("6 2 /", 3)]
+        public void Sould_Add_Two_Number(string formula, int expectedResult)
         {
             // GIVEN
-            string formula = "5 3 +";
             RPNCalculator rpnCalculator = new RPNCalculator();
 
             // WHEN

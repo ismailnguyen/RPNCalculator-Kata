@@ -36,6 +36,21 @@ namespace RPNCalculator_Kata
                 {
                     Operators.Push(RPNOperator.Sum);
                 }
+
+                if (splittedFormulaCaracter.Equals("-"))
+                {
+                    Operators.Push(RPNOperator.Substract);
+                }
+
+                if (splittedFormulaCaracter.Equals("*"))
+                {
+                    Operators.Push(RPNOperator.Multiply);
+                }
+
+                if (splittedFormulaCaracter.Equals("/"))
+                {
+                    Operators.Push(RPNOperator.Divide);
+                }
             }
         }
     }
