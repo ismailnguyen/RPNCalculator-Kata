@@ -7,7 +7,12 @@ namespace RPNCalculator_Kata.Tests
     {
         [TestCase("5 3 +", 8)]
         [TestCase("6 2 /", 3)]
-        public void Sould_Add_Two_Number(string formula, int expectedResult)
+        [TestCase("5 2 - 7 +", 10)]
+        [TestCase("7 5 2 - +", 10)]
+        [TestCase("3 5 8 x 7 + x", 141)]
+        [TestCase("3 4 2 1 + x + 2 /", 7.5)]
+        //[TestCase("1 2 + 4 × 5 + 3 −", 14)]
+        public void Sould_Add_Two_Number(string formula, double expectedResult)
         {
             // GIVEN
             RPNCalculator rpnCalculator = new RPNCalculator();
@@ -16,7 +21,7 @@ namespace RPNCalculator_Kata.Tests
             double result = rpnCalculator.Calculate(formula);
 
             // THEN
-            Check.That(result).IsEqualTo(8);
+            Check.That(result).IsEqualTo(expectedResult);
         }
     }
 }

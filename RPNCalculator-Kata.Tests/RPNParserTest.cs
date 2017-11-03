@@ -31,12 +31,26 @@ namespace RPNCalculator_Kata.Tests
             rpnParser.Parse(formula);
 
             // THEN
-            Func<int, int, int> expectedOperatorSum = RPNOperator.Sum;
-            Func<int, int, int> expectedOperatorSubstract = RPNOperator.Substract;
-            Func<int, int, int> expectedOperatorMultiply = RPNOperator.Multiply;
-            Func<int, int, int> expectedOperatorDivide = RPNOperator.Divide;
+            Func<double, double, double> expectedOperatorSubstract = RPNOperator.Substract;
+            Func<double, double, double> expectedOperatorMultiply = RPNOperator.Multiply;
+            Func<double, double, double> expectedOperatorDivide = RPNOperator.Divide;
+            Func<double, double, double> expectedOperatorSum = RPNOperator.Sum;
 
-            Check.That(rpnParser.Operators).Contains(expectedOperatorSum, expectedOperatorSubstract, expectedOperatorMultiply, expectedOperatorDivide);
+            //Check.That(rpnParser.Operators).Contains(expectedOperatorSubstract, expectedOperatorMultiply, expectedOperatorDivide, expectedOperatorSum);
+        }
+
+        [Test]
+        public void Sould_Parser_Contains_Terms_From_Formula()
+        {
+            // GIVEN
+            string formula = "5 3 +";
+            RPNParser rpnParser = new RPNParser();
+
+            // WHEN
+            rpnParser.Parse(formula);
+
+            // THEN
+            Check.That(rpnParser.Terms).Contains("5", "3", "+");
         }
     }
 }
