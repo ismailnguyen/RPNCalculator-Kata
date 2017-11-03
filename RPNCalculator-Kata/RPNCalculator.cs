@@ -32,7 +32,7 @@ namespace RPNCalculator_Kata
                 var tab = tempFormula.ToArray();
                 var caracter = tab[j];
 
-                if (isOperator(caracter))
+                if (RPNOperator.IsOperator(caracter))
                 {
                     int x = int.Parse(tab[j-2]);
                     int y = int.Parse(tab[j-1]);
@@ -73,14 +73,6 @@ namespace RPNCalculator_Kata
             }
 
             return result;
-        }
-
-        private bool isOperator(string caracter)
-        {
-            return caracter.Equals("+")
-                || caracter.Equals("-")
-                 || caracter.Equals("x")
-                  || caracter.Equals("/");
         }
     }
 }

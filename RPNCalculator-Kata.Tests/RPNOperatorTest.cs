@@ -61,5 +61,18 @@ namespace RPNCalculator_Kata.Tests
             // THEN
             Check.That(result).IsEqualTo(expectedResult);
         }
+
+        [TestCase("x")]
+        [TestCase("-")]
+        [TestCase("+")]
+        [TestCase("/")]
+        public void Sould_Check_String_Match_With_Operator(string caracter)
+        {
+            // WHEN
+            bool isOperator = RPNOperator.IsOperator(caracter);
+
+            // THEN
+            Check.That(isOperator).IsTrue();
+        }
     }
 }
