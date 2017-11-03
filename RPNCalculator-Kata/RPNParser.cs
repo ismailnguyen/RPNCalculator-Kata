@@ -1,24 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace RPNCalculator_Kata
 {
     public class RPNParser
     {
-        public Stack<string> Terms { get; set; } = new Stack<string>();
+        public List<string> Terms { get; private set; } = new List<string>();
 
         public void Parse(string formula)
         {
-            var splittedFormula = formula.Split(' ');
-
-            parseTerms(splittedFormula);
-        }
-
-        private void parseTerms(string[] splittedFormula)
-        {
-            foreach (var splittedFormulaCaracter in splittedFormula)
-            {
-                Terms.Push(splittedFormulaCaracter);
-            }
+            Terms = formula.Split(' ').ToList();
         }
     }
 }

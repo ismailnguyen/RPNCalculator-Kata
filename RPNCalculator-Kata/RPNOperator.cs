@@ -24,37 +24,37 @@ namespace RPNCalculator_Kata
             return x * y;
         }
 
-        public static bool IsOperator(string caracter)
+        public static bool IsOperator(string character)
         {
-            return caracter.Equals("+")
-                || caracter.Equals("-")
-                 || caracter.Equals("x")
-                  || caracter.Equals("/");
+            return character.Equals("+")
+                || character.Equals("-")
+                 || character.Equals("x")
+                  || character.Equals("/");
         }
 
-        public static Func<double, double, double> GetOperator(string caracter)
+        public static Func<double, double, double> GetOperator(string character)
         {
-            if (caracter.Equals("+"))
+            if (character.Equals("+"))
             {
                 return Sum;
             }
 
-            if (caracter.Equals("-"))
+            if (character.Equals("-"))
             {
                 return Substract;
             }
 
-            if (caracter.Equals("x"))
+            if (character.Equals("x"))
             {
                 return Multiply;
             }
 
-            if (caracter.Equals("/"))
+            if (character.Equals("/"))
             {
                 return Divide;
             }
 
-            throw new ArgumentException("Caracter doesn't match with an operator. (Use + - x /)");
+            throw new ArgumentException("Character doesn't match with an operator. (Use + - x /)");
         }
     }
 }

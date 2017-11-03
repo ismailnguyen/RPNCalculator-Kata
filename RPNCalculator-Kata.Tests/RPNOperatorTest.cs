@@ -66,10 +66,10 @@ namespace RPNCalculator_Kata.Tests
         [TestCase("-")]
         [TestCase("+")]
         [TestCase("/")]
-        public void Sould_Check_String_Match_With_Operator(string caracter)
+        public void Sould_Check_String_Match_With_Operator(string character)
         {
             // WHEN
-            bool isOperator = RPNOperator.IsOperator(caracter);
+            bool isOperator = RPNOperator.IsOperator(character);
 
             // THEN
             Check.That(isOperator).IsTrue();
@@ -79,10 +79,10 @@ namespace RPNCalculator_Kata.Tests
         public void Sould_Return_Method_Corresponding_To_Operator()
         {
             // GIVEN
-            var caracter = "x";
+            var character = "x";
 
             // WHEN
-            Func<double, double, double> op = RPNOperator.GetOperator(caracter);
+            Func<double, double, double> op = RPNOperator.GetOperator(character);
 
             // THEN
             Func<double, double, double> expectedOperator = RPNOperator.Multiply;

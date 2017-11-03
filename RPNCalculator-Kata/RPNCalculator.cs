@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace RPNCalculator_Kata
 {
@@ -10,47 +8,31 @@ namespace RPNCalculator_Kata
 
         public double Calculate(string formula)
         {
-            rpnParser.Parse(formula);
+            rpnParser.Parse(formula);   
 
             double result = 0;
 
-            var tempFormula = new Queue<string>();
+            var terms = rpnParser.Terms;
 
-            for(int i=0; i<formula.Length; i++)
+            for (int i = 0; i < terms.Count; i++)
             {
-                if (formula[i].Equals(' '))
+                var currentCharacter = terms[i];
+
+                if (RPNOperator.IsOperator(currentCharacter))
                 {
-                    continue;
-                }
+                    int x = int.Parse(terms[i - 2]);
+                    int y = int.Parse(terms[i - 1]);
 
-                tempFormula.Enqueue(formula[i].ToString());
-            }
+                    Func<double, double, double> operation = RPNOperator.GetOperator(currentCharacter);
 
-            int count = tempFormula.Count;
-            for (int j = 0; j < count; j++)
-            {
-                var tab = tempFormula.ToArray();
-                var caracter = tab[j];
+                    result = operation(x, y);
 
-                if (RPNOperator.IsOperator(caracter))
-                {
-                    int x = int.Parse(tab[j-2]);
-                    int y = int.Parse(tab[j-1]);
+                    terms[i] = result.ToString();
 
-                    Func<double, double, double> op = null;
+                    terms.RemoveAt(i - 1);
+                    terms.RemoveAt(i - 2);
 
-                    op = RPNOperator.GetOperator(caracter);
-
-                    result = op(x, y);
-
-                    var actualTab = tempFormula.ToList();
-                    actualTab[j] = result.ToString();
-                    actualTab.RemoveAt(j-1);
-                    actualTab.RemoveAt(j-2);
-
-                    tempFormula = new Queue<string>(actualTab);
-                    count = actualTab.Count;
-                    j = 0;
+                    i = 0;
                 }
             }
 
