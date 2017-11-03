@@ -12,7 +12,7 @@ namespace RPNCalculator_Kata.Tests
         [TestCase("3 5 8 x 7 + x", 141)]
         [TestCase("3 4 2 1 + x + 2 /", 7.5)]
         [TestCase("1 2 + 4 x 5 + 3 -", 14)]
-        public void Sould_Add_Two_Number(string formula, double expectedResult)
+        public void Should_Calculate_RPN_Formulas(string formula, double expectedResult)
         {
             // GIVEN
             RPNCalculator rpnCalculator = new RPNCalculator();
