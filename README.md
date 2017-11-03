@@ -19,3 +19,7 @@ public double calculate(String formula) où la formule est une expression valide
 
 1 2 + 4 × 5 + 3 − => ((1+2) x 4) + 5 - 3 => 14
 ```
+
+## References
+
+``https://en.wikipedia.org/wiki/Reverse_Polish_notation``
