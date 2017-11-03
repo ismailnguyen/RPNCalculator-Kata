@@ -34,27 +34,15 @@ namespace RPNCalculator_Kata
 
         public static Func<double, double, double> GetOperator(string character)
         {
-            if (character.Equals("+"))
+            switch (character)
             {
-                return Sum;
-            }
+                case "+": return Sum;
+                case "-": return Substract;
+                case "x": return Multiply;
+                case "/": return Divide;
 
-            if (character.Equals("-"))
-            {
-                return Substract;
+                default: throw new ArgumentException("Character doesn't match with an operator. (Use + - x /)");
             }
-
-            if (character.Equals("x"))
-            {
-                return Multiply;
-            }
-
-            if (character.Equals("/"))
-            {
-                return Divide;
-            }
-
-            throw new ArgumentException("Character doesn't match with an operator. (Use + - x /)");
         }
     }
 }
