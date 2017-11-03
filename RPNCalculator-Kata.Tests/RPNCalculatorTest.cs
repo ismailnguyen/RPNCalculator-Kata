@@ -11,7 +11,7 @@ namespace RPNCalculator_Kata.Tests
         [TestCase("7 5 2 - +", 10)]
         [TestCase("3 5 8 x 7 + x", 141)]
         [TestCase("3 4 2 1 + x + 2 /", 7.5)]
-        //[TestCase("1 2 + 4 × 5 + 3 −", 14)]
+        [TestCase("1 2 + 4 x 5 + 3 -", 14)]
         public void Sould_Add_Two_Number(string formula, double expectedResult)
         {
             // GIVEN
