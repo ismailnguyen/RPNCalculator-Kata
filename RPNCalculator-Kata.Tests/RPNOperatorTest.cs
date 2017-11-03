@@ -74,5 +74,19 @@ namespace RPNCalculator_Kata.Tests
             // THEN
             Check.That(isOperator).IsTrue();
         }
+
+        [Test]
+        public void Sould_Return_Method_Corresponding_To_Operator()
+        {
+            // GIVEN
+            var caracter = "x";
+
+            // WHEN
+            Func<double, double, double> op = RPNOperator.GetOperator(caracter);
+
+            // THEN
+            Func<double, double, double> expectedOperator = RPNOperator.Multiply;
+            Check.That(op).IsEqualTo(expectedOperator);
+        }
     }
 }

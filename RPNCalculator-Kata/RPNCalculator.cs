@@ -39,25 +39,7 @@ namespace RPNCalculator_Kata
 
                     Func<double, double, double> op = null;
 
-                    if (caracter.Equals("+"))
-                    {
-                        op = RPNOperator.Sum;
-                    }
-
-                    if (caracter.Equals("-"))
-                    {
-                        op = RPNOperator.Substract;
-                    }
-
-                    if (caracter.Equals("x"))
-                    {
-                        op = RPNOperator.Multiply;
-                    }
-
-                    if (caracter.Equals("/"))
-                    {
-                        op = RPNOperator.Divide;
-                    }
+                    op = RPNOperator.GetOperator(caracter);
 
                     result = op(x, y);
 

@@ -31,5 +31,30 @@ namespace RPNCalculator_Kata
                  || caracter.Equals("x")
                   || caracter.Equals("/");
         }
+
+        public static Func<double, double, double> GetOperator(string caracter)
+        {
+            if (caracter.Equals("+"))
+            {
+                return Sum;
+            }
+
+            if (caracter.Equals("-"))
+            {
+                return Substract;
+            }
+
+            if (caracter.Equals("x"))
+            {
+                return Multiply;
+            }
+
+            if (caracter.Equals("/"))
+            {
+                return Divide;
+            }
+
+            throw new ArgumentException("Caracter doesn't match with an operator. (Use + - x /)");
+        }
     }
 }
